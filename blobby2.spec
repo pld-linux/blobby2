@@ -11,7 +11,7 @@ Release:	1
 License:	GPL v2
 Group:		X11/Applications/Games
 Source0:	%{name}-%{snap}.tar.bz2
-# Source0-md5:	3808d2d3d2186c1424ec9e5b01a05198
+# Source0-md5:	fffe00422e14879fe73db491ae782649
 URL:		http://blobby.redio.de/content/en/
 BuildRequires:	OpenGL-devel
 BuildRequires:	SDL-devel
@@ -31,7 +31,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-sed -i -e "s:HAVE_LIBGL = @HAVE_LIBGL@:HAVE_LIBGL = 1:" src/Makefile.in
+sed -i -e "s:HAVE_LIBGL = @HAVE_LIBGL@:HAVE_LIBGL = 0:" src/Makefile.in
 sed -i  -e "s:-lSDL:-lSDL -lGL:" configure
 %configure \
 	%{?debug:--enable-debug}
