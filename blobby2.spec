@@ -3,8 +3,8 @@
 #	- use system-wide lua
 
 %define		snap	070804
-Summary:	Blobby Volley 2
-Summary(pl.UTF-8):	Blobby Volley 2
+Summary:	Blobby Volley 2 game
+Summary(pl.UTF-8):	Gra Blobby Volley 2
 Name:		blobby2
 Version:	0.61
 Release:	1
@@ -18,11 +18,14 @@ BuildRequires:	SDL-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	physfs-devel
+BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
+Blobby Volley 2 game.
 
 %description -l pl.UTF-8
+Gra Blobby Volley 2.
 
 %prep
 %setup -q -n %{name}-%{snap}
@@ -32,7 +35,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %{__autoconf}
 %{__automake}
 sed -i -e "s:HAVE_LIBGL = @HAVE_LIBGL@:HAVE_LIBGL = 0:" src/Makefile.in
-sed -i  -e "s:-lSDL:-lSDL -lGL:" configure
+sed -i -e "s:-lSDL:-lSDL -lGL:" configure
 %configure \
 	%{?debug:--enable-debug}
 %{__make} \
