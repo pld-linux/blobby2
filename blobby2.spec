@@ -12,6 +12,7 @@ License:	GPL v2
 Group:		X11/Applications/Games
 Source0:	%{name}-%{snap}.tar.bz2
 # Source0-md5:	fffe00422e14879fe73db491ae782649
+Patch0:		%{name}-gcc4.patch
 URL:		http://blobby.redio.de/content/en/
 BuildRequires:	OpenGL-devel
 BuildRequires:	SDL-devel
@@ -29,6 +30,7 @@ Gra Blobby Volley 2.
 
 %prep
 %setup -q -n %{name}-%{snap}
+%patch0 -p1
 
 %build
 %{__aclocal}

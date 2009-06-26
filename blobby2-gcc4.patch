@@ -1,0 +1,21 @@
+--- blobby-alpha-6-unpatched/src/NetworkState.cpp 2008-11-09 17:17:28.000000000 +0100
++++ blobby-alpha-6/src/NetworkState.cpp 2008-11-09 17:17:53.000000000 +0100
+@@ -18,6 +18,7 @@
+ =============================================================================*/
+ 
+ #include <sstream>
++#include <algorithm>
+ 
+ #include "NetworkState.h"
+ #include "NetworkMessage.h"
+diff -ru blobby-alpha-6-unpatched/src/State.cpp blobby-alpha-6/src/State.cpp
+--- blobby-alpha-6-unpatched/src/State.cpp 2008-11-09 17:17:28.000000000 +0100
++++ blobby-alpha-6/src/State.cpp 2008-11-09 17:18:08.000000000 +0100
+@@ -30,6 +30,7 @@
+ 
+ #include <physfs.h>
+ #include <sstream>
++#include <algorithm>
+ 
+ State::State()
+ {
