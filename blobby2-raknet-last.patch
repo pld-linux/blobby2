@@ -1,0 +1,111 @@
+--- blobbyvolley2-1.1.1/src/raknet/LinkedList.h.orig
++++ blobbyvolley2-1.1.1/src/raknet/LinkedList.h
+@@ -272,7 +272,7 @@
+ 	template <class LinkedListType>
+ 		bool LinkedList<LinkedListType>::operator= ( const LinkedList<LinkedListType>& original_copy )
+ 	{
+-		typename LinkedList::node * original_copy_pointer, *save_position;
++		typename LinkedList::node * original_copy_pointer, *last, *save_position;
+ 
+ 		if ( ( &original_copy ) != this )
+ 		{
+@@ -318,7 +318,7 @@
+ 
+ 
+ 						// Save the current element
+-						this->last = this->position;
++						last = this->position;
+ 
+ 						// Point to the next node in the source list
+ 						original_copy_pointer = original_copy_pointer->next;
+@@ -336,10 +336,10 @@
+ 
+ 
+ 						// Set the previous pointer for the new node
+-						( this->position->previous ) = this->last;
++						( this->position->previous ) = last;
+ 
+ 						// Set the next pointer for the old node to the new node
+-						( this->last->next ) = this->position;
++						( last->next ) = this->position;
+ 
+ 					}
+ 
+@@ -422,7 +422,7 @@
+ 				do
+ 				{
+ 					// Save the current element
+-					this->last = this->position;
++					last = this->position;
+ 
+ 					// Point to the next node in the source list
+ 					original_copy_pointer = original_copy_pointer->next;
+@@ -442,7 +442,7 @@
+ 					( this->position->previous ) = last;
+ 
+ 					// Set the next pointer for the old node to the new node
+-					( this->last->next ) = this->position;
++					( last->next ) = this->position;
+ 
+ 				}
+ 
+@@ -463,6 +463,7 @@
+ 		CircularLinkedList<CircularLinkedListType>::CircularLinkedList( const CircularLinkedList& original_copy )
+ 	{
+ 		node * original_copy_pointer;
++		node *last;
+ 		node *save_position;
+ 
+ 		if ( original_copy.list_size == 0 )
+@@ -504,7 +505,7 @@
+ 
+ 
+ 					// Save the current element
+-					this->last = this->position;
++					last = this->position;
+ 
+ 					// Point to the next node in the source list
+ 					original_copy_pointer = original_copy_pointer->next;
+@@ -521,10 +522,10 @@
+ 						save_position = position;
+ 
+ 					// Set the previous pointer for the new node
+-					( this->position->previous ) = this->last;
++					( this->position->previous ) = last;
+ 
+ 					// Set the next pointer for the old node to the new node
+-					( this->last->next ) = this->position;
++					( last->next ) = this->position;
+ 
+ 				}
+ 
+@@ -545,6 +546,7 @@
+ 		bool CircularLinkedList<CircularLinkedListType>::operator= ( const CircularLinkedList& original_copy )
+ 	{
+ 		node * original_copy_pointer;
++		node *last;
+ 		node *save_position;
+ 
+ 		if ( ( &original_copy ) != this )
+@@ -589,7 +591,7 @@
+ 					do
+ 					{
+ 						// Save the current element
+-						this->last = this->position;
++						last = this->position;
+ 
+ 						// Point to the next node in the source list
+ 						original_copy_pointer = original_copy_pointer->next;
+@@ -606,10 +608,10 @@
+ 							save_position = this->position;
+ 
+ 						// Set the previous pointer for the new node
+-						( this->position->previous ) = this->last;
++						( this->position->previous ) = last;
+ 
+ 						// Set the next pointer for the old node to the new node
+-						( this->last->next ) = this->position;
++						( last->next ) = this->position;
+ 
+ 					}
+ 
