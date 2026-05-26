@@ -2,7 +2,7 @@ Summary:	Blobby Volley 2 game
 Summary(pl.UTF-8):	Gra Blobby Volley 2
 Name:		blobby2
 Version:	1.1.1
-Release:	3
+Release:	4
 License:	GPL v2
 Group:		X11/Applications/Games
 Source0:	https://github.com/danielknobe/blobbyvolley2/archive/v%{version}/%{name}-%{version}.tar.gz
