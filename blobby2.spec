@@ -2,7 +2,8 @@ Summary:	Blobby Volley 2 game
 Summary(pl.UTF-8):	Gra Blobby Volley 2
 Name:		blobby2
 Version:	1.1.1
-Release:	4
+# TODO: Unbundle tinyxml2 and lua
+Release:	4.1
 License:	GPL v2
 Group:		X11/Applications/Games
 Source0:	https://github.com/danielknobe/blobbyvolley2/archive/v%{version}/%{name}-%{version}.tar.gz
@@ -15,6 +16,7 @@ BuildRequires:	boost-devel
 BuildRequires:	cmake >= 3.7
 BuildRequires:	physfs-devel
 BuildRequires:	rpmbuild(macros) >= 1.605
+BuildRequires:	tinyxml2-devel
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
@@ -40,6 +42,9 @@ Dedykowany serwer gry Blobby Volley 2.
 %prep
 %setup -q -n blobbyvolley2-%{version}
 %patch -P0 -p1
+
+%{__rm} -r deps/lua
+%{__rm} -r deps/tinyxml
 
 %build
 install -d build
