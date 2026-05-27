@@ -14,6 +14,7 @@ BuildRequires:	OpenGL-devel
 BuildRequires:	SDL2-devel
 BuildRequires:	boost-devel
 BuildRequires:	cmake >= 3.7
+BuildRequires:	lua53-devel
 BuildRequires:	physfs-devel
 BuildRequires:	rpmbuild(macros) >= 1.605
 BuildRequires:	tinyxml2-devel
